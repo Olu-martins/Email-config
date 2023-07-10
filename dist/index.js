@@ -25,6 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
 const React = __importStar(require("react"));
@@ -32,8 +33,9 @@ const verify_identity_html_1 = __importDefault(require("./emails/merchants/verif
 const mail_1 = __importDefault(require("@sendgrid/mail"));
 const render_1 = require("@react-email/render");
 require("dotenv/config");
-// const apiKey: string = process.env.SENDGRID_API_KEY ?? "";
-mail_1.default.setApiKey('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');
+require('dotenv').config();
+const api = (_a = process.env.SENDGRID_API_KEY) !== null && _a !== void 0 ? _a : "";
+mail_1.default.setApiKey(api);
 const emailComponent = (0, render_1.render)(React.createElement(verify_identity_html_1.default, null));
 const message = {
     to: ['mayowasamuel86@gmail', 'olumayowa@korapay.com'],

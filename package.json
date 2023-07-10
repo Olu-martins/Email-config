@@ -6,7 +6,7 @@
     ".react-email"
   ],
   "scripts": {
-    "dev": "email dev",
+    "dev": "email dev --dir dist/index.js",
     "export": "email export"
   },
   "dependencies": {

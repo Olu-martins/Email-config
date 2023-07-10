@@ -1,13 +1,14 @@
 import * as React from 'react';
 import PlaidVerifyIdentityEmail from './emails/merchants/verify-identity-html';
-import sgMail from '@sendgrid/mail';
+import emaiKey from '@sendgrid/mail';
 import { render } from "@react-email/render";
 import 'dotenv/config'
 
-const apiKey: string = process.env.SENDGRID_API_KEY ?? "";
+require('dotenv').config()
 
+const api: string = process.env.SENDGRID_API_KEY ?? "";
 
-sgMail.setApiKey(apiKey);
+emaiKey.setApiKey(api);
 
 const emailComponent = render(<PlaidVerifyIdentityEmail />)
 
@@ -22,7 +23,7 @@ const message = {
 }
 
 export const sendEmail = () => {
-    sgMail
+    emaiKey
         .send(message)
         .then(() => console.log('Email sent successfully'))
     .catch((error: Error)=> console.log(error.message))
