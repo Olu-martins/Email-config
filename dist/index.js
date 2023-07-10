@@ -29,14 +29,13 @@ var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
 const React = __importStar(require("react"));
-const verify_identity_html_1 = __importDefault(require("./emails/merchants/verify-identity-html"));
 const mail_1 = __importDefault(require("@sendgrid/mail"));
-const render_1 = require("@react-email/render");
 require("dotenv/config");
 require('dotenv').config();
 const api = (_a = process.env.SENDGRID_API_KEY) !== null && _a !== void 0 ? _a : "";
 mail_1.default.setApiKey(api);
-const emailComponent = (0, render_1.render)(React.createElement(verify_identity_html_1.default, null));
+// const emailComponent = render(<PlaidVerifyIdentityEmail />)
+const html = React.createElement("p", null, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae exercitationem nisi! Asperiores quas consequatur distinctio, beatae in reiciendis laudantium corrupti ad harum at obcaecati, consequuntur illum, necessitatibus eum possimus.");
 const message = {
     to: ['mayowasamuel86@gmail', 'olumayowa@korapay.com'],
     from: {
@@ -44,7 +43,7 @@ const message = {
         email: 'bethanyinfor@gmail.com'
     },
     subject: 'Verify your idendity',
-    html: emailComponent
+    html
 };
 const sendEmail = () => {
     mail_1.default

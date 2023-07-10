@@ -10,7 +10,8 @@ const api: string = process.env.SENDGRID_API_KEY ?? "";
 
 emaiKey.setApiKey(api);
 
-const emailComponent = render(<PlaidVerifyIdentityEmail />)
+// const emailComponent = render(<PlaidVerifyIdentityEmail />)
+const html: any = <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae exercitationem nisi! Asperiores quas consequatur distinctio, beatae in reiciendis laudantium corrupti ad harum at obcaecati, consequuntur illum, necessitatibus eum possimus.</p>
 
 const message = {
     to: ['mayowasamuel86@gmail', 'olumayowa@korapay.com'],
@@ -19,7 +20,7 @@ const message = {
         email: 'bethanyinfor@gmail.com'
     },
     subject: 'Verify your idendity',
-    html: emailComponent
+    html 
 }
 
 export const sendEmail = () => {
@@ -28,3 +29,6 @@ export const sendEmail = () => {
         .then(() => console.log('Email sent successfully'))
     .catch((error: Error)=> console.log(error.message))
 }
+
+
+
